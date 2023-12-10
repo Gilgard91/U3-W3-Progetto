@@ -1,0 +1,25 @@
+﻿<div *ngIf="favoriteMovies.size > 0" class="bg-light">
+<h1 class="text-center mb-3">FAVORITES</h1>
+<div class="row px-5">
+  <div *ngFor="let movie of favoriteMovies" class="col-3 col-sm-3 col-md-2 col-lg-1 mb-3 mx-5">
+    <div *ngIf="movie">
+      <img class="card-img-top" style="width: 150px" [src]="'http://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="">
+    </div>
+  </div>
+</div>
+<hr class="px-5">
+</div>
+
+
+<h1 class="text-center mb-3 mt-5">MOVIES</h1>
+<div class="row px-5">
+  <div *ngFor="let movie of movies" class="col-md-4 ">
+    <div class="card mb-4 d-flex flex-column align-items-center">
+      <h2 class="card-title fs-4">{{ movie.title }}</h2>
+      <img class="card-img-top" style="width: 200px" [src]="'http://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="">
+      <div class="card-body">
+        <button type="button" class="btn btn-primary" (click)="addFavorite(movie.id)">Aggiungi ai favoriti</button>
+      </div>
+    </div>
+  </div>
+</div>
